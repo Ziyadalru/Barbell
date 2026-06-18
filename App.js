@@ -8917,35 +8917,48 @@ function ProfileScreen() {
           </View>
         </View>
 
-        {/* ── Legal ── */}
+        {/* ── Legal / Support ── */}
         <View style={{ marginHorizontal: 16, marginTop: 8, backgroundColor: C.surface, borderRadius: 14, overflow: 'hidden' }}>
+          {[
+            { label: 'Privacy Policy',    icon: 'shield-checkmark-outline', onPress: () => Linking.openURL('https://ziyadalru.github.io/Barbell/privacy-policy') },
+            { label: 'Terms of Use',      icon: 'document-text-outline',    onPress: () => Linking.openURL('https://ziyadalru.github.io/Barbell/terms') },
+            { label: 'Support',           icon: 'help-circle-outline',      onPress: () => Linking.openURL('mailto:z.alrubian@gmail.com?subject=Barbellz%20Support') },
+          ].map((row, i, arr) => (
+            <React.Fragment key={row.label}>
+              <TouchableOpacity
+                style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 14, gap: 12 }}
+                activeOpacity={0.7}
+                onPress={row.onPress}
+              >
+                <Ionicons name={row.icon} size={18} color={C.t2} />
+                <Text style={{ flex: 1, fontSize: 15, color: C.t1 }}>{row.label}</Text>
+                <Ionicons name="open-outline" size={14} color={C.t3} />
+              </TouchableOpacity>
+              {i < arr.length - 1 && <View style={{ height: 0.5, backgroundColor: C.border, marginLeft: 46 }} />}
+            </React.Fragment>
+          ))}
+          <View style={{ height: 0.5, backgroundColor: C.border, marginLeft: 46 }} />
           <TouchableOpacity
             style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 14, gap: 12 }}
             activeOpacity={0.7}
-            onPress={() => Linking.openURL('https://ziyadalru.github.io/Barbell/privacy-policy')}
+            onPress={async () => {
+              try {
+                const result = await restoreRevenueCatPurchases();
+                Alert.alert(result.active ? 'Restored' : 'Nothing to restore', result.active ? 'Your Pro access is active.' : 'No active subscription found.');
+              } catch (e) {
+                Alert.alert('Restore failed', e?.message || 'Could not restore purchases.');
+              }
+            }}
           >
-            <Ionicons name="shield-checkmark-outline" size={18} color={C.t2} />
-            <Text style={{ flex: 1, fontSize: 15, color: C.t1 }}>Privacy Policy</Text>
-            <Ionicons name="open-outline" size={14} color={C.t3} />
+            <Ionicons name="refresh-outline" size={18} color={C.t2} />
+            <Text style={{ flex: 1, fontSize: 15, color: C.t1 }}>Restore Purchases</Text>
+            <Ionicons name="chevron-forward" size={14} color={C.t3} />
           </TouchableOpacity>
         </View>
 
-        {/* ── Log Out ── */}
-        <TouchableOpacity
-          style={{ marginHorizontal: 16, marginTop: 8, paddingVertical: 14, alignItems: 'center', flexDirection: 'row', justifyContent: 'center', gap: 7 }}
-          activeOpacity={0.7}
-          onPress={() => Alert.alert('Log Out', 'Are you sure?', [
-            { text: 'Cancel', style: 'cancel' },
-            { text: 'Log Out', style: 'destructive', onPress: async () => { await supabase.auth.signOut(); } },
-          ])}
-        >
-          <Ionicons name="log-out-outline" size={15} color="#FF375F" style={{ opacity: 0.75 }} />
-          <Text style={{ fontSize: 14, color: '#FF375F', fontWeight: '500', opacity: 0.75 }}>Log Out</Text>
-        </TouchableOpacity>
-
         {/* ── Delete Account ── */}
         <TouchableOpacity
-          style={{ marginHorizontal: 16, marginTop: 2, paddingVertical: 14, alignItems: 'center', flexDirection: 'row', justifyContent: 'center', gap: 7 }}
+          style={{ marginHorizontal: 16, marginTop: 8, paddingVertical: 14, alignItems: 'center', flexDirection: 'row', justifyContent: 'center', gap: 7 }}
           activeOpacity={0.7}
           onPress={() => Alert.alert(
             'Delete Account',
@@ -8965,8 +8978,21 @@ function ProfileScreen() {
             ]
           )}
         >
-          <Ionicons name="trash-outline" size={15} color="#FF375F" style={{ opacity: 0.5 }} />
-          <Text style={{ fontSize: 14, color: '#FF375F', fontWeight: '500', opacity: 0.5 }}>Delete Account</Text>
+          <Ionicons name="trash-outline" size={15} color="#FF375F" style={{ opacity: 0.55 }} />
+          <Text style={{ fontSize: 14, color: '#FF375F', fontWeight: '500', opacity: 0.55 }}>Delete Account</Text>
+        </TouchableOpacity>
+
+        {/* ── Log Out ── */}
+        <TouchableOpacity
+          style={{ marginHorizontal: 16, marginTop: 2, paddingVertical: 14, alignItems: 'center', flexDirection: 'row', justifyContent: 'center', gap: 7 }}
+          activeOpacity={0.7}
+          onPress={() => Alert.alert('Log Out', 'Are you sure?', [
+            { text: 'Cancel', style: 'cancel' },
+            { text: 'Log Out', style: 'destructive', onPress: async () => { await supabase.auth.signOut(); } },
+          ])}
+        >
+          <Ionicons name="log-out-outline" size={15} color="#FF375F" style={{ opacity: 0.75 }} />
+          <Text style={{ fontSize: 14, color: '#FF375F', fontWeight: '500', opacity: 0.75 }}>Log Out</Text>
         </TouchableOpacity>
 
         <Text style={{ textAlign: 'center', fontSize: 11, color: C.t3, marginTop: 4, opacity: 0.35 }}>Barbellz · v1.0</Text>

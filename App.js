@@ -181,7 +181,7 @@ function HomeScreen({ navigation }) {
     ? { text: 'Trained today', color: '#30D158', icon: 'checkmark-circle' }
     : daysSinceLast === 1
       ? { text: 'Last trained yesterday', color: C.t3, icon: null }
-      : daysSinceLast != null && daysSinceLast > 1
+        : daysSinceLast != null && daysSinceLast > 1
         ? { text: `${daysSinceLast} days since last session`, color: '#FF9F0A', icon: null }
         : { text: 'No workouts yet', color: C.t3, icon: null };
 
@@ -213,30 +213,31 @@ function HomeScreen({ navigation }) {
     <View style={[styles.screen, { paddingTop: insets.top, backgroundColor: C.bg }]}>
       <StatusBar barStyle={C.statusBar} />
 
-      <ScrollView style={styles.scroll} contentContainerStyle={{ paddingBottom: 32 }} showsVerticalScrollIndicator={false}>
+      <ScrollView style={styles.scroll} contentContainerStyle={{ paddingBottom: 116 }} showsVerticalScrollIndicator={false}>
 
         {/* ── HEADER ── */}
-        <View style={{ paddingHorizontal: 20, paddingTop: 8, paddingBottom: 16 }}>
-          <Text style={{ fontSize: 13, fontWeight: '600', color: C.t3, marginBottom: 3 }}>{dayName}</Text>
-          <Text style={{ fontSize: 28, fontWeight: '800', color: C.t1, letterSpacing: -0.8 }}>
+        <View style={{ paddingHorizontal: 20, paddingTop: 10, paddingBottom: 18 }}>
+          <Text style={{ fontSize: 12, fontWeight: '800', color: C.accent, letterSpacing: 1.2, textTransform: 'uppercase', marginBottom: 5 }}>{dayName}</Text>
+          <Text style={{ fontSize: 30, fontWeight: '900', color: C.t1, letterSpacing: -1, lineHeight: 35 }}>
             {greeting}{userName ? `, ${userName}` : ''}
           </Text>
         </View>
 
-        {/* ── HERO CARD (compact) ── */}
-        <View style={{ marginHorizontal: 16, marginBottom: 12, borderRadius: 18, overflow: 'hidden', backgroundColor: C.surface }}>
-          <View style={{ backgroundColor: C.accent, height: 3 }} />
-          <View style={{ paddingHorizontal: 16, paddingTop: 14, paddingBottom: 14 }}>
+        {/* ── ACTION CARD ── */}
+        <View style={{ marginHorizontal: 16, marginBottom: 12, borderRadius: 18, overflow: 'hidden', backgroundColor: C.surface, borderWidth: 1, borderColor: C.border }}>
+          <View style={{ height: 3, backgroundColor: C.accent }} />
+          <View style={{ padding: 15 }}>
+            <Text style={{ fontSize: 12, fontWeight: '800', color: C.t3, letterSpacing: 1.1, textTransform: 'uppercase', marginBottom: 12 }}>Today</Text>
             <View style={{ flexDirection: 'row', gap: 10 }}>
               <TouchableOpacity onPress={() => navigation.navigate('Workout')} activeOpacity={0.85}
-                style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, backgroundColor: C.accent, borderRadius: 13, paddingVertical: 16 }}>
+                style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, backgroundColor: C.accent, borderRadius: 13, paddingVertical: 15 }}>
                 <Ionicons name="barbell-outline" size={18} color="#fff" />
-                <Text style={{ fontSize: 15, fontWeight: '700', color: '#fff' }}>Start Workout</Text>
+                <Text style={{ fontSize: 15, fontWeight: '800', color: '#fff' }}>Start Workout</Text>
               </TouchableOpacity>
               <TouchableOpacity onPress={() => navigation.navigate('Nutrition')} activeOpacity={0.85}
-                style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, backgroundColor: C.s2, borderRadius: 13, paddingVertical: 16 }}>
+                style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, backgroundColor: C.s2, borderRadius: 13, paddingVertical: 15, borderWidth: 1, borderColor: C.border }}>
                 <Ionicons name="restaurant-outline" size={18} color={C.t2} />
-                <Text style={{ fontSize: 15, fontWeight: '700', color: C.t2 }}>Log Food</Text>
+                <Text style={{ fontSize: 15, fontWeight: '800', color: C.t2 }}>Log Food</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -244,50 +245,45 @@ function HomeScreen({ navigation }) {
 
         {/* ── TODAY'S NUTRITION ── */}
         <TouchableOpacity activeOpacity={0.85} onPress={() => navigation.navigate('Nutrition')}
-          style={{ marginHorizontal: 16, marginBottom: 12, borderRadius: 16, overflow: 'hidden', backgroundColor: C.surface }}>
-          <View style={{ flexDirection: 'row', overflow: 'hidden' }}>
-            <View style={{ width: 4, backgroundColor: C.accent }} />
-            <View style={{ flex: 1, paddingHorizontal: 14, paddingTop: 13, paddingBottom: 15 }}>
-              <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
-                <Text style={{ fontSize: 15, fontWeight: '700', color: C.t1 }}>Today's Nutrition</Text>
-                <Text style={{ fontSize: 12, color: remaining < 0 ? '#FF453A' : C.t3, fontWeight: '600' }}>
-                  {remaining < 0 ? `${Math.abs(remaining)} over` : `${remaining} kcal left`}
-                </Text>
+          style={{ marginHorizontal: 16, marginBottom: 12, borderRadius: 18, overflow: 'hidden', backgroundColor: C.surface, borderWidth: 1, borderColor: C.border }}>
+          <View style={{ paddingHorizontal: 15, paddingTop: 14, paddingBottom: 16 }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
+              <Text style={{ fontSize: 16, fontWeight: '800', color: C.t1, letterSpacing: -0.2 }}>Today's Nutrition</Text>
+              <Text style={{ fontSize: 12, color: remaining < 0 ? '#FF453A' : C.t3, fontWeight: '700' }}>
+                {remaining < 0 ? `${Math.abs(remaining)} kcal over` : `${remaining} kcal left`}
+              </Text>
+            </View>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 16 }}>
+              <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                <AnimatedRingProgress
+                  size={88} stroke={8}
+                  progress={goals.calories > 0 ? Math.min(consumed / goals.calories, 1) : 0}
+                  color={remaining < 0 ? '#FF453A' : C.accent}
+                />
+                <View style={{ position: 'absolute', alignItems: 'center' }}>
+                  <Text style={{ fontSize: 17, fontWeight: '900', color: C.t1, letterSpacing: -0.5 }}>{consumed}</Text>
+                  <Text style={{ fontSize: 9, fontWeight: '800', color: C.t3, letterSpacing: 0.8 }}>KCAL</Text>
+                </View>
               </View>
-              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 16 }}>
-                {/* Calorie ring */}
-                <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-                  <AnimatedRingProgress
-                    size={88} stroke={8}
-                    progress={goals.calories > 0 ? Math.min(consumed / goals.calories, 1) : 0}
-                    color={C.accent}
-                  />
-                  <View style={{ position: 'absolute', alignItems: 'center' }}>
-                    <Text style={{ fontSize: 17, fontWeight: '900', color: C.t1, letterSpacing: -0.5 }}>{consumed}</Text>
-                    <Text style={{ fontSize: 9, fontWeight: '700', color: C.t3, letterSpacing: 0.3 }}>KCAL</Text>
-                  </View>
-                </View>
-                {/* Macro bars */}
-                <View style={{ flex: 1, gap: 10 }}>
-                  {[
-                    { label: 'Protein', val: macros.p, goal: goals.protein, color: '#FFB340' },
-                    { label: 'Carbs',   val: macros.c, goal: goals.carbs,   color: '#30D158' },
-                    { label: 'Fat',     val: macros.f, goal: goals.fat,     color: '#BF5AF2' },
-                  ].map(row => {
-                    const pct = row.goal > 0 ? Math.min(row.val / row.goal, 1) : 0;
-                    return (
-                      <View key={row.label}>
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
-                          <Text style={{ fontSize: 11, fontWeight: '700', color: row.color }}>{row.label}</Text>
-                          <Text style={{ fontSize: 11, color: C.t3 }}>{row.val}g / {row.goal}g</Text>
-                        </View>
-                        <View style={{ height: 5, backgroundColor: C.s3, borderRadius: 3, overflow: 'hidden' }}>
-                          <View style={{ height: '100%', width: `${pct * 100}%`, backgroundColor: row.color, borderRadius: 3 }} />
-                        </View>
+              <View style={{ flex: 1, gap: 10 }}>
+                {[
+                  { label: 'Protein', val: macros.p, goal: goals.protein, color: '#FFB340' },
+                  { label: 'Carbs',   val: macros.c, goal: goals.carbs,   color: '#30D158' },
+                  { label: 'Fat',     val: macros.f, goal: goals.fat,     color: '#BF5AF2' },
+                ].map(row => {
+                  const pct = row.goal > 0 ? Math.min(row.val / row.goal, 1) : 0;
+                  return (
+                    <View key={row.label}>
+                      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
+                        <Text style={{ fontSize: 11, fontWeight: '800', color: row.color }}>{row.label}</Text>
+                        <Text style={{ fontSize: 11, color: C.t3 }}>{row.val}g / {row.goal}g</Text>
                       </View>
-                    );
-                  })}
-                </View>
+                      <View style={{ height: 5, backgroundColor: C.s3, borderRadius: 3, overflow: 'hidden' }}>
+                        <View style={{ height: '100%', width: `${pct * 100}%`, backgroundColor: row.color, borderRadius: 3 }} />
+                      </View>
+                    </View>
+                  );
+                })}
               </View>
             </View>
           </View>
@@ -8922,7 +8918,7 @@ function ProfileScreen() {
           {[
             { label: 'Privacy Policy',    icon: 'shield-checkmark-outline', onPress: () => Linking.openURL('https://ziyadalru.github.io/Barbell/privacy-policy') },
             { label: 'Terms of Use',      icon: 'document-text-outline',    onPress: () => Linking.openURL('https://ziyadalru.github.io/Barbell/terms') },
-            { label: 'Support',           icon: 'help-circle-outline',      onPress: () => Linking.openURL('mailto:z.alrubian@gmail.com?subject=Barbellz%20Support') },
+            { label: 'Support',           icon: 'help-circle-outline',      onPress: () => Linking.openURL('mailto:Arubz0@outlook.com?subject=Barbellz%20Support') },
           ].map((row, i, arr) => (
             <React.Fragment key={row.label}>
               <TouchableOpacity

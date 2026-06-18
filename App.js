@@ -7147,13 +7147,14 @@ function NutritionScreen() {
   useEffect(() => () => { clearTimeout(toastTimer.current); clearTimeout(undoTimer.current); }, []);
 
   useFocusEffect(useCallback(() => {
-    AsyncStorage.multiGet(['customFoods', GOALS_KEY]).then(([[,cRaw],[,gRaw]]) => {
+    AsyncStorage.multiGet(['customFoods', GOALS_KEY, `meals_${selectedDate}`]).then(([[,cRaw],[,gRaw],[,mRaw]]) => {
       setCustomFoods(parseStoredJson(cRaw, []));
       customFoodsLoaded.current = true;
       if (gRaw) setGoals(parseStoredJson(gRaw, DEFAULT_GOALS));
+      setMeals(parseStoredJson(mRaw, EMPTY_MEALS));
     });
     return () => setSharingMeal(null);
-  }, []));
+  }, [selectedDate]));
 
   useEffect(() => {
     AsyncStorage.getItem(`meals_${selectedDate}`).then(d => {

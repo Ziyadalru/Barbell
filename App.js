@@ -8917,6 +8917,19 @@ function ProfileScreen() {
           </View>
         </View>
 
+        {/* ── Legal ── */}
+        <View style={{ marginHorizontal: 16, marginTop: 8, backgroundColor: C.surface, borderRadius: 14, overflow: 'hidden' }}>
+          <TouchableOpacity
+            style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 14, gap: 12 }}
+            activeOpacity={0.7}
+            onPress={() => Linking.openURL('https://ziyadalru.github.io/Barbell/privacy-policy')}
+          >
+            <Ionicons name="shield-checkmark-outline" size={18} color={C.t2} />
+            <Text style={{ flex: 1, fontSize: 15, color: C.t1 }}>Privacy Policy</Text>
+            <Ionicons name="open-outline" size={14} color={C.t3} />
+          </TouchableOpacity>
+        </View>
+
         {/* ── Log Out ── */}
         <TouchableOpacity
           style={{ marginHorizontal: 16, marginTop: 8, paddingVertical: 14, alignItems: 'center', flexDirection: 'row', justifyContent: 'center', gap: 7 }}
@@ -8928,6 +8941,32 @@ function ProfileScreen() {
         >
           <Ionicons name="log-out-outline" size={15} color="#FF375F" style={{ opacity: 0.75 }} />
           <Text style={{ fontSize: 14, color: '#FF375F', fontWeight: '500', opacity: 0.75 }}>Log Out</Text>
+        </TouchableOpacity>
+
+        {/* ── Delete Account ── */}
+        <TouchableOpacity
+          style={{ marginHorizontal: 16, marginTop: 2, paddingVertical: 14, alignItems: 'center', flexDirection: 'row', justifyContent: 'center', gap: 7 }}
+          activeOpacity={0.7}
+          onPress={() => Alert.alert(
+            'Delete Account',
+            'This will permanently delete your account and all data — workouts, nutrition logs, and progress. This cannot be undone.',
+            [
+              { text: 'Cancel', style: 'cancel' },
+              { text: 'Delete Account', style: 'destructive', onPress: () =>
+                Alert.alert('Are you sure?', 'All your data will be erased forever.', [
+                  { text: 'Cancel', style: 'cancel' },
+                  { text: 'Yes, Delete Everything', style: 'destructive', onPress: async () => {
+                    await supabase.auth.signOut();
+                    await AsyncStorage.clear();
+                    rerunOnboarding();
+                  }},
+                ])
+              },
+            ]
+          )}
+        >
+          <Ionicons name="trash-outline" size={15} color="#FF375F" style={{ opacity: 0.5 }} />
+          <Text style={{ fontSize: 14, color: '#FF375F', fontWeight: '500', opacity: 0.5 }}>Delete Account</Text>
         </TouchableOpacity>
 
         <Text style={{ textAlign: 'center', fontSize: 11, color: C.t3, marginTop: 4, opacity: 0.35 }}>Barbellz · v1.0</Text>

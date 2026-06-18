@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#0D1B2A"/>
+      <stop offset="100%" stop-color="#04080F"/>
+    </radialGradient>
+    <filter id="glow" x="-120%" y="-120%" width="340%" height="340%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="18" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="1000" fill="url(#bg)" rx="110"/>
+
+  <!-- ── BARBELL (scale 2.5×, center x=500, center y=375) ── -->
+
+  <!-- Left tiny (20×55) -->
+  <rect x="175" y="347" width="20" height="55" rx="4" fill="white" fill-opacity="0.22"/>
+  <!-- Left small (33×100) -->
+  <rect x="200" y="325" width="33" height="100" rx="6" fill="#0A84FF" fill-opacity="0.55"/>
+  <!-- Left large (45×155) — glow -->
+  <rect x="238" y="297" width="45" height="155" rx="8" fill="#0A84FF" filter="url(#glow)"/>
+  <!-- Left micro (28×85) -->
+  <rect x="290" y="332" width="28" height="85" rx="4" fill="white" fill-opacity="0.15"/>
+
+  <!-- Bar (365×15) -->
+  <rect x="318" y="367" width="365" height="15" rx="7" fill="white" fill-opacity="0.20"/>
+
+  <!-- Right micro (28×85) -->
+  <rect x="683" y="332" width="28" height="85" rx="4" fill="white" fill-opacity="0.15"/>
+  <!-- Right large (45×155) — glow -->
+  <rect x="718" y="297" width="45" height="155" rx="8" fill="#0A84FF" filter="url(#glow)"/>
+  <!-- Right small (33×100) -->
+  <rect x="768" y="325" width="33" height="100" rx="6" fill="#0A84FF" fill-opacity="0.55"/>
+  <!-- Right tiny (20×55) -->
+  <rect x="805" y="347" width="20" height="55" rx="4" fill="white" fill-opacity="0.22"/>
+
+  <!-- ── TEXT ── -->
+  <text
+    x="500" y="590"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="110" font-weight="800" fill="white"
+    text-anchor="middle" letter-spacing="-4">Barbellz</text>
+
+  <text
+    x="500" y="635"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="18" font-weight="700" fill="#0A84FF"
+    text-anchor="middle" letter-spacing="5">LIFT · TRACK · GROW</text>
+</svg>

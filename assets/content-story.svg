@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="32%" r="72%">
+      <stop offset="0%" stop-color="#0E1E30"/>
+      <stop offset="100%" stop-color="#04080F"/>
+    </radialGradient>
+    <filter id="glow" x="-120%" y="-120%" width="340%" height="340%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="halo" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="80" result="blur"/>
+    </filter>
+    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0A84FF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#0A84FF" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0A84FF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0A84FF" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#0A84FF" stop-opacity="0.03"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1920" fill="url(#bg)"/>
+
+  <!-- Blue halo -->
+  <ellipse cx="540" cy="660" rx="340" ry="160" fill="#0A84FF" fill-opacity="0.07" filter="url(#halo)"/>
+
+  <!-- Top label -->
+  <text x="540" y="220"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="700" fill="#0A84FF"
+    text-anchor="middle" letter-spacing="7">COMING SOON</text>
+
+  <!-- Barbell (scale 2.7×, center y=660) -->
+  <rect x="189" y="630" width="22" height="59" rx="4" fill="white" fill-opacity="0.22"/>
+  <rect x="215" y="606" width="35" height="108" rx="6" fill="#0A84FF" fill-opacity="0.55"/>
+  <rect x="254" y="576" width="49" height="167" rx="9" fill="#0A84FF" filter="url(#glow)"/>
+  <rect x="311" y="614" width="30" height="92" rx="5" fill="white" fill-opacity="0.15"/>
+  <rect x="341" y="652" width="394" height="16" rx="8" fill="white" fill-opacity="0.20"/>
+  <rect x="735" y="614" width="30" height="92" rx="5" fill="white" fill-opacity="0.15"/>
+  <rect x="777" y="576" width="49" height="167" rx="9" fill="#0A84FF" filter="url(#glow)"/>
+  <rect x="830" y="606" width="35" height="108" rx="6" fill="#0A84FF" fill-opacity="0.55"/>
+  <rect x="869" y="630" width="22" height="59" rx="4" fill="white" fill-opacity="0.22"/>
+
+  <!-- Barbellz -->
+  <text x="540" y="900"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="118" font-weight="800" fill="white"
+    text-anchor="middle" letter-spacing="-4">Barbellz</text>
+
+  <text x="540" y="950"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="20" font-weight="700" fill="#0A84FF"
+    text-anchor="middle" letter-spacing="5">LIFT · TRACK · GROW</text>
+
+  <!-- Divider -->
+  <rect x="140" y="1000" width="800" height="1" fill="url(#accentLine)"/>
+
+  <!-- Feature cards row -->
+  <!-- Workouts card -->
+  <rect x="80" y="1040" width="280" height="130" rx="18" fill="url(#cardGrad)" stroke="#0A84FF" stroke-width="1" stroke-opacity="0.30"/>
+  <text x="220" y="1090"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="11" font-weight="700" fill="#0A84FF" text-anchor="middle" letter-spacing="2">WORKOUTS</text>
+  <text x="220" y="1120"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="22" font-weight="800" fill="white" text-anchor="middle">Track every rep</text>
+  <text x="220" y="1148"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="400" fill="rgba(255,255,255,0.45)" text-anchor="middle">Sets · Reps · Volume</text>
+
+  <!-- Nutrition card -->
+  <rect x="400" y="1040" width="280" height="130" rx="18" fill="url(#cardGrad)" stroke="#0A84FF" stroke-width="1" stroke-opacity="0.30"/>
+  <text x="540" y="1090"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="11" font-weight="700" fill="#0A84FF" text-anchor="middle" letter-spacing="2">NUTRITION</text>
+  <text x="540" y="1120"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="22" font-weight="800" fill="white" text-anchor="middle">Log your meals</text>
+  <text x="540" y="1148"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="400" fill="rgba(255,255,255,0.45)" text-anchor="middle">Macros · Calories</text>
+
+  <!-- Progress card -->
+  <rect x="720" y="1040" width="280" height="130" rx="18" fill="url(#cardGrad)" stroke="#0A84FF" stroke-width="1" stroke-opacity="0.30"/>
+  <text x="860" y="1090"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="11" font-weight="700" fill="#0A84FF" text-anchor="middle" letter-spacing="2">PROGRESS</text>
+  <text x="860" y="1120"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="22" font-weight="800" fill="white" text-anchor="middle">See your growth</text>
+  <text x="860" y="1148"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="400" fill="rgba(255,255,255,0.45)" text-anchor="middle">Charts · Milestones</text>
+
+  <!-- Tagline -->
+  <text x="540" y="1290"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="30" font-weight="700" fill="rgba(255,255,255,0.88)"
+    text-anchor="middle" letter-spacing="-0.5">Your personal fitness companion.</text>
+
+  <text x="540" y="1340"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="19" font-weight="400" fill="rgba(255,255,255,0.42)"
+    text-anchor="middle">All in one place — free to download.</text>
+
+  <!-- App Store CTA -->
+  <rect x="240" y="1400" width="600" height="80" rx="24" fill="rgba(10,132,255,0.12)" stroke="#0A84FF" stroke-width="1.5" stroke-opacity="0.6"/>
+  <text x="540" y="1436"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="600" fill="rgba(255,255,255,0.50)"
+    text-anchor="middle" letter-spacing="1.5">AVAILABLE SOON ON</text>
+  <text x="540" y="1465"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="22" font-weight="700" fill="white"
+    text-anchor="middle">App Store</text>
+
+  <!-- Swipe up hint -->
+  <!-- Arrow up symbol -->
+  <line x1="540" y1="1590" x2="540" y2="1540" stroke="#0A84FF" stroke-width="2" stroke-opacity="0.5"/>
+  <line x1="520" y1="1560" x2="540" y2="1540" stroke="#0A84FF" stroke-width="2" stroke-opacity="0.5"/>
+  <line x1="560" y1="1560" x2="540" y2="1540" stroke="#0A84FF" stroke-width="2" stroke-opacity="0.5"/>
+  <text x="540" y="1618"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="12" font-weight="600" fill="rgba(255,255,255,0.35)"
+    text-anchor="middle" letter-spacing="2">FOLLOW FOR UPDATES</text>
+
+  <!-- Handle -->
+  <text x="540" y="1840"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="15" font-weight="600" fill="rgba(255,255,255,0.22)"
+    text-anchor="middle" letter-spacing="1">@barbellzapp</text>
+</svg>

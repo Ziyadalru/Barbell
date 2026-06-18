@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#0E1E30"/>
+      <stop offset="100%" stop-color="#04080F"/>
+    </radialGradient>
+    <filter id="glow" x="-120%" y="-120%" width="340%" height="340%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="16" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0A84FF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#0A84FF" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0A84FF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+
+  <!-- Top label -->
+  <text
+    x="540" y="110"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="700" fill="#0A84FF"
+    text-anchor="middle" letter-spacing="5">NOW AVAILABLE ON THE APP STORE</text>
+
+  <!-- ── BARBELL (scale 2.7×, center x=540, center y=420) ── -->
+
+  <!-- Left tiny (22×59) -->
+  <rect x="189" y="390" width="22" height="59" rx="4" fill="white" fill-opacity="0.22"/>
+  <!-- Left small (35×108) -->
+  <rect x="215" y="366" width="35" height="108" rx="6" fill="#0A84FF" fill-opacity="0.55"/>
+  <!-- Left large (49×167) — glow -->
+  <rect x="254" y="336" width="49" height="167" rx="9" fill="#0A84FF" filter="url(#glow)"/>
+  <!-- Left micro (30×92) -->
+  <rect x="311" y="374" width="30" height="92" rx="5" fill="white" fill-opacity="0.15"/>
+
+  <!-- Bar (394×16) -->
+  <rect x="341" y="412" width="394" height="16" rx="8" fill="white" fill-opacity="0.20"/>
+
+  <!-- Right micro (30×92) -->
+  <rect x="735" y="374" width="30" height="92" rx="5" fill="white" fill-opacity="0.15"/>
+  <!-- Right large (49×167) — glow -->
+  <rect x="777" y="336" width="49" height="167" rx="9" fill="#0A84FF" filter="url(#glow)"/>
+  <!-- Right small (35×108) -->
+  <rect x="830" y="366" width="35" height="108" rx="6" fill="#0A84FF" fill-opacity="0.55"/>
+  <!-- Right tiny (22×59) -->
+  <rect x="869" y="390" width="22" height="59" rx="4" fill="white" fill-opacity="0.22"/>
+
+  <!-- ── MAIN TEXT ── -->
+  <text
+    x="540" y="640"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="118" font-weight="800" fill="white"
+    text-anchor="middle" letter-spacing="-4">Barbellz</text>
+
+  <text
+    x="540" y="688"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="18" font-weight="700" fill="#0A84FF"
+    text-anchor="middle" letter-spacing="5">LIFT · TRACK · GROW</text>
+
+  <!-- Accent divider -->
+  <rect x="190" y="730" width="700" height="1" fill="url(#accentLine)"/>
+
+  <!-- Feature row -->
+  <text x="540" y="800"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="17" font-weight="500" fill="rgba(255,255,255,0.55)"
+    text-anchor="middle" letter-spacing="0.5">Workouts  ·  Nutrition  ·  Progress</text>
+
+  <!-- Tagline -->
+  <text x="540" y="870"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="28" font-weight="700" fill="rgba(255,255,255,0.88)"
+    text-anchor="middle" letter-spacing="-0.5">Your personal fitness companion.</text>
+
+  <!-- Bottom handle hint -->
+  <text x="540" y="980"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="14" font-weight="600" fill="rgba(255,255,255,0.25)"
+    text-anchor="middle" letter-spacing="1">barbellz.app</text>
+</svg>

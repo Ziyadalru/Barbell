@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="62%">
+      <stop offset="0%" stop-color="#0A1E35"/>
+      <stop offset="60%" stop-color="#05101E"/>
+      <stop offset="100%" stop-color="#020810"/>
+    </radialGradient>
+    <radialGradient id="blueGlow" cx="50%" cy="38%" r="35%">
+      <stop offset="0%" stop-color="#0A84FF" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0A84FF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-120%" y="-120%" width="340%" height="340%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="18" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Dark navy background -->
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <!-- Subtle blue ambient glow behind barbell -->
+  <rect width="1024" height="1024" fill="url(#blueGlow)"/>
+
+  <!-- Barbell (scale 2.7×, center x=512, center y=380) -->
+  <!-- Left tiny -->
+  <rect x="161" y="350" width="22" height="59" rx="4" fill="white" fill-opacity="0.22"/>
+  <!-- Left small -->
+  <rect x="188" y="326" width="35" height="108" rx="6" fill="#0A84FF" fill-opacity="0.55"/>
+  <!-- Left large (glow) -->
+  <rect x="229" y="296" width="49" height="167" rx="9" fill="#0A84FF" filter="url(#glow)"/>
+  <!-- Left micro -->
+  <rect x="285" y="334" width="30" height="92" rx="5" fill="white" fill-opacity="0.15"/>
+  <!-- Bar -->
+  <rect x="315" y="372" width="394" height="16" rx="8" fill="white" fill-opacity="0.20"/>
+  <!-- Right micro -->
+  <rect x="709" y="334" width="30" height="92" rx="5" fill="white" fill-opacity="0.15"/>
+  <!-- Right large (glow) -->
+  <rect x="747" y="296" width="49" height="167" rx="9" fill="#0A84FF" filter="url(#glow)"/>
+  <!-- Right small -->
+  <rect x="801" y="326" width="35" height="108" rx="6" fill="#0A84FF" fill-opacity="0.55"/>
+  <!-- Right tiny -->
+  <rect x="841" y="350" width="22" height="59" rx="4" fill="white" fill-opacity="0.22"/>
+
+  <!-- Barbellz -->
+  <text x="512" y="590"
+    font-family="'Helvetica Neue', Arial, sans-serif"
+    font-size="110" font-weight="800" fill="white"
+    text-anchor="middle" letter-spacing="-4">Barbellz</text>
+
+  <text x="512" y="636"
+    font-family="'Helvetica Neue', Arial, sans-serif"
+    font-size="17" font-weight="700" fill="#0A84FF"
+    text-anchor="middle" letter-spacing="5">LIFT · TRACK · GROW</text>
+</svg>

@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#0A1828"/>
+      <stop offset="100%" stop-color="#04080F"/>
+    </radialGradient>
+    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0A84FF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#0A84FF" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0A84FF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.02"/>
+    </linearGradient>
+    <filter id="glow" x="-120%" y="-120%" width="340%" height="340%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+
+  <!-- Top brand line -->
+  <text x="80" y="76"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="12" font-weight="700" fill="#0A84FF" letter-spacing="3">BARBELLZ</text>
+
+  <!-- Feature label -->
+  <text x="80" y="128"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="46" font-weight="800" fill="white" letter-spacing="-1.5">Workout</text>
+  <text x="80" y="182"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="46" font-weight="800" fill="#0A84FF" letter-spacing="-1.5">Tracking.</text>
+
+  <!-- Simulated workout card -->
+  <rect x="80" y="218" width="920" height="520" rx="24" fill="url(#cardBg)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+  <!-- Card header -->
+  <text x="120" y="278"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="26" font-weight="800" fill="white" letter-spacing="-0.5">Back Day</text>
+  <text x="120" y="308"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="14" font-weight="500" fill="rgba(255,255,255,0.38)" letter-spacing="0.2">Today · 6 exercises</text>
+
+  <!-- Divider -->
+  <rect x="120" y="326" width="840" height="1" fill="rgba(255,255,255,0.07)"/>
+
+  <!-- Exercise rows -->
+  <!-- Row 1 -->
+  <rect x="120" y="340" width="840" height="68" rx="12" fill="rgba(10,132,255,0.06)"/>
+  <text x="148" y="370"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="17" font-weight="600" fill="white">Lat Pulldown</text>
+  <text x="148" y="394"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="400" fill="rgba(255,255,255,0.38)">Lats</text>
+  <text x="920" y="370"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="17" font-weight="700" fill="#0A84FF" text-anchor="end">4 × 12</text>
+  <text x="920" y="394"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="500" fill="rgba(255,255,255,0.38)" text-anchor="end">80 kg</text>
+
+  <!-- Row 2 -->
+  <text x="148" y="444"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="17" font-weight="600" fill="white">Cable Row</text>
+  <text x="148" y="468"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="400" fill="rgba(255,255,255,0.38)">Mid Back</text>
+  <text x="920" y="444"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="17" font-weight="700" fill="#0A84FF" text-anchor="end">3 × 10</text>
+  <text x="920" y="468"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="500" fill="rgba(255,255,255,0.38)" text-anchor="end">70 kg</text>
+  <rect x="120" y="480" width="840" height="1" fill="rgba(255,255,255,0.05)"/>
+
+  <!-- Row 3 -->
+  <text x="148" y="514"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="17" font-weight="600" fill="white">Pull-Ups</text>
+  <text x="148" y="538"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="400" fill="rgba(255,255,255,0.38)">Lats · Biceps</text>
+  <text x="920" y="514"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="17" font-weight="700" fill="#0A84FF" text-anchor="end">4 × 8</text>
+  <text x="920" y="538"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="500" fill="rgba(255,255,255,0.38)" text-anchor="end">Bodyweight</text>
+  <rect x="120" y="550" width="840" height="1" fill="rgba(255,255,255,0.05)"/>
+
+  <!-- Row 4 -->
+  <text x="148" y="584"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="17" font-weight="600" fill="white">Face Pulls</text>
+  <text x="148" y="608"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="400" fill="rgba(255,255,255,0.38)">Rear Delts</text>
+  <text x="920" y="584"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="17" font-weight="700" fill="#0A84FF" text-anchor="end">3 × 15</text>
+  <text x="920" y="608"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="500" fill="rgba(255,255,255,0.38)" text-anchor="end">25 kg</text>
+
+  <!-- Stats footer inside card -->
+  <rect x="120" y="642" width="840" height="1" fill="rgba(255,255,255,0.07)"/>
+  <text x="148" y="694"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="500" fill="rgba(255,255,255,0.38)" letter-spacing="0.5">VOLUME</text>
+  <text x="148" y="720"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="22" font-weight="800" fill="white">2,140 kg</text>
+
+  <text x="480" y="694"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="500" fill="rgba(255,255,255,0.38)" letter-spacing="0.5">DURATION</text>
+  <text x="480" y="720"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="22" font-weight="800" fill="white">58 min</text>
+
+  <text x="780" y="694"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="500" fill="rgba(255,255,255,0.38)" letter-spacing="0.5">SETS</text>
+  <text x="780" y="720"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="22" font-weight="800" fill="white">18</text>
+
+  <!-- Bottom text -->
+  <rect x="80" y="768" width="700" height="1" fill="url(#accentLine)"/>
+
+  <text x="80" y="830"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="28" font-weight="700" fill="rgba(255,255,255,0.88)" letter-spacing="-0.5">Track every rep. Never miss</text>
+  <text x="80" y="866"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="28" font-weight="700" fill="rgba(255,255,255,0.88)" letter-spacing="-0.5">a PR again.</text>
+
+  <text x="80" y="916"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="16" font-weight="400" fill="rgba(255,255,255,0.40)">Log sets, reps, and weight for every exercise.</text>
+
+  <!-- Handle -->
+  <text x="80" y="1010"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="600" fill="rgba(255,255,255,0.22)" letter-spacing="1">barbellz.app</text>
+</svg>

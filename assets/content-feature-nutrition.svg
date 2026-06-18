@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#0A1828"/>
+      <stop offset="100%" stop-color="#04080F"/>
+    </radialGradient>
+    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0A84FF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#0A84FF" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0A84FF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.02"/>
+    </linearGradient>
+    <!-- Macro bar gradients -->
+    <linearGradient id="proteinBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0A84FF"/>
+      <stop offset="100%" stop-color="#34AAFF"/>
+    </linearGradient>
+    <linearGradient id="carbBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#30D158"/>
+      <stop offset="100%" stop-color="#34C759"/>
+    </linearGradient>
+    <linearGradient id="fatBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FF9F0A"/>
+      <stop offset="100%" stop-color="#FFCC02"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+
+  <!-- Top brand line -->
+  <text x="80" y="76"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="12" font-weight="700" fill="#0A84FF" letter-spacing="3">BARBELLZ</text>
+
+  <!-- Feature label -->
+  <text x="80" y="128"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="46" font-weight="800" fill="white" letter-spacing="-1.5">Nutrition</text>
+  <text x="80" y="182"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="46" font-weight="800" fill="#0A84FF" letter-spacing="-1.5">Tracking.</text>
+
+  <!-- Main nutrition card -->
+  <rect x="80" y="218" width="920" height="520" rx="24" fill="url(#cardBg)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+  <!-- Daily summary header -->
+  <text x="120" y="278"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="26" font-weight="800" fill="white" letter-spacing="-0.5">Today's Nutrition</text>
+  <text x="120" y="308"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="14" font-weight="500" fill="rgba(255,255,255,0.38)">Sunday · June 15</text>
+
+  <!-- Calorie ring area (simplified as number) -->
+  <text x="870" y="270"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="38" font-weight="800" fill="white" text-anchor="end">2,240</text>
+  <text x="870" y="298"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="500" fill="rgba(255,255,255,0.38)" text-anchor="end">/ 2,500 kcal</text>
+
+  <rect x="120" y="324" width="840" height="1" fill="rgba(255,255,255,0.07)"/>
+
+  <!-- Macro bars -->
+  <!-- Protein -->
+  <text x="120" y="366"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="14" font-weight="600" fill="white">Protein</text>
+  <text x="920" y="366"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="14" font-weight="700" fill="white" text-anchor="end">182g / 200g</text>
+  <rect x="120" y="376" width="800" height="10" rx="5" fill="rgba(255,255,255,0.07)"/>
+  <rect x="120" y="376" width="728" height="10" rx="5" fill="url(#proteinBar)"/>
+
+  <!-- Carbs -->
+  <text x="120" y="422"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="14" font-weight="600" fill="white">Carbohydrates</text>
+  <text x="920" y="422"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="14" font-weight="700" fill="white" text-anchor="end">210g / 250g</text>
+  <rect x="120" y="432" width="800" height="10" rx="5" fill="rgba(255,255,255,0.07)"/>
+  <rect x="120" y="432" width="672" height="10" rx="5" fill="url(#carbBar)"/>
+
+  <!-- Fats -->
+  <text x="120" y="478"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="14" font-weight="600" fill="white">Fats</text>
+  <text x="920" y="478"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="14" font-weight="700" fill="white" text-anchor="end">65g / 80g</text>
+  <rect x="120" y="488" width="800" height="10" rx="5" fill="rgba(255,255,255,0.07)"/>
+  <rect x="120" y="488" width="650" height="10" rx="5" fill="url(#fatBar)"/>
+
+  <rect x="120" y="518" width="840" height="1" fill="rgba(255,255,255,0.07)"/>
+
+  <!-- Recent meals -->
+  <text x="120" y="552"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="12" font-weight="700" fill="rgba(255,255,255,0.38)" letter-spacing="1.5">RECENT MEALS</text>
+
+  <!-- Meal 1 -->
+  <text x="120" y="588"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="16" font-weight="600" fill="white">Grilled Chicken Breast</text>
+  <text x="920" y="588"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="16" font-weight="600" fill="#0A84FF" text-anchor="end">165 kcal</text>
+  <text x="120" y="610"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="400" fill="rgba(255,255,255,0.35)">31g protein · 0g carbs · 3.6g fat</text>
+
+  <rect x="120" y="622" width="840" height="1" fill="rgba(255,255,255,0.05)"/>
+
+  <!-- Meal 2 -->
+  <text x="120" y="652"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="16" font-weight="600" fill="white">Brown Rice (1 cup)</text>
+  <text x="920" y="652"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="16" font-weight="600" fill="#0A84FF" text-anchor="end">216 kcal</text>
+  <text x="120" y="674"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="400" fill="rgba(255,255,255,0.35)">5g protein · 45g carbs · 1.8g fat</text>
+
+  <rect x="120" y="686" width="840" height="1" fill="rgba(255,255,255,0.05)"/>
+
+  <!-- Meal 3 -->
+  <text x="120" y="716"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="16" font-weight="600" fill="white">Greek Yogurt (200g)</text>
+  <text x="920" y="716"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="16" font-weight="600" fill="#0A84FF" text-anchor="end">130 kcal</text>
+  <text x="120" y="738"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="400" fill="rgba(255,255,255,0.35)">17g protein · 8g carbs · 3g fat</text>
+
+  <!-- Bottom text -->
+  <rect x="80" y="768" width="700" height="1" fill="url(#accentLine)"/>
+
+  <text x="80" y="830"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="28" font-weight="700" fill="rgba(255,255,255,0.88)" letter-spacing="-0.5">Hit your macros every day.</text>
+  <text x="80" y="866"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="28" font-weight="700" fill="rgba(255,255,255,0.88)" letter-spacing="-0.5">Fuel your gains right.</text>
+
+  <text x="80" y="916"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="16" font-weight="400" fill="rgba(255,255,255,0.40)">Search millions of foods. Track protein, carbs, and fat.</text>
+
+  <!-- Handle -->
+  <text x="80" y="1010"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="600" fill="rgba(255,255,255,0.22)" letter-spacing="1">barbellz.app</text>
+</svg>

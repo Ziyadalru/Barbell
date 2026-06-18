@@ -1,29 +1,42 @@
 {
   "expo": {
-    "name": "Barbell",
-    "slug": "Barbell",
+    "name": "Barbellz",
+    "slug": "barbellz",
     "version": "1.0.0",
+    "platforms": [
+      "ios"
+    ],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
     "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#05101E"
     },
     "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true
+      "bundleIdentifier": "com.ziyadalrubian.barbellz",
+      "buildNumber": "1",
+      "supportsTablet": false,
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSCameraUsageDescription": "Allow Barbellz to access your camera to scan barcodes, nutrition labels, and meal photos.",
+        "NSPhotoLibraryUsageDescription": "Allow Barbellz to access your photos so you can choose a meal photo for nutrition analysis."
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-asset",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow Barbellz to access your camera to scan barcodes and nutrition labels."
+        }
+      ],
+      "expo-apple-authentication"
+    ]
   }
 }

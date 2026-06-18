@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500" width="1500" height="500">
+  <defs>
+    <radialGradient id="bg" cx="35%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#0C1927"/>
+      <stop offset="100%" stop-color="#04080F"/>
+    </radialGradient>
+    <filter id="glow" x="-120%" y="-120%" width="340%" height="340%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Subtle vertical divider glow -->
+    <linearGradient id="divider" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0A84FF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#0A84FF" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#0A84FF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1500" height="500" fill="url(#bg)"/>
+
+  <!-- ── BARBELL (scale 2.0×, center x=320, center y=250) ── -->
+
+  <!-- Left tiny (16×44) -->
+  <rect x="128" y="228" width="16" height="44" rx="3" fill="white" fill-opacity="0.22"/>
+  <!-- Left small (26×80) -->
+  <rect x="148" y="210" width="26" height="80" rx="5" fill="#0A84FF" fill-opacity="0.55"/>
+  <!-- Left large (36×124) — glow -->
+  <rect x="178" y="188" width="36" height="124" rx="6" fill="#0A84FF" filter="url(#glow)"/>
+  <!-- Left micro (22×68) -->
+  <rect x="220" y="216" width="22" height="68" rx="3" fill="white" fill-opacity="0.15"/>
+
+  <!-- Bar (292×12) -->
+  <rect x="242" y="244" width="292" height="12" rx="6" fill="white" fill-opacity="0.20"/>
+
+  <!-- Right micro (22×68) -->
+  <rect x="534" y="216" width="22" height="68" rx="3" fill="white" fill-opacity="0.15"/>
+  <!-- Right large (36×124) — glow -->
+  <rect x="562" y="188" width="36" height="124" rx="6" fill="#0A84FF" filter="url(#glow)"/>
+  <!-- Right small (26×80) -->
+  <rect x="602" y="210" width="26" height="80" rx="5" fill="#0A84FF" fill-opacity="0.55"/>
+  <!-- Right tiny (16×44) -->
+  <rect x="632" y="228" width="16" height="44" rx="3" fill="white" fill-opacity="0.22"/>
+
+  <!-- Divider line -->
+  <rect x="720" y="80" width="1.5" height="340" fill="url(#divider)"/>
+
+  <!-- ── BRAND TEXT (right column) ── -->
+  <text
+    x="770" y="225"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="110" font-weight="800" fill="white"
+    text-anchor="start" letter-spacing="-4">Barbellz</text>
+
+  <text
+    x="774" y="268"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="16" font-weight="700" fill="#0A84FF"
+    text-anchor="start" letter-spacing="5">LIFT · TRACK · GROW</text>
+
+  <text
+    x="775" y="308"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="15" font-weight="400" fill="rgba(255,255,255,0.45)"
+    text-anchor="start" letter-spacing="0.3">Workouts · Nutrition · Progress — all in one place.</text>
+</svg>

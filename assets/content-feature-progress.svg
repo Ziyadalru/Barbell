@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#0A1828"/>
+      <stop offset="100%" stop-color="#04080F"/>
+    </radialGradient>
+    <linearGradient id="accentLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0A84FF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#0A84FF" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0A84FF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0A84FF" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#0A84FF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+
+  <!-- Top brand line -->
+  <text x="80" y="76"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="12" font-weight="700" fill="#0A84FF" letter-spacing="3">BARBELLZ</text>
+
+  <!-- Feature label -->
+  <text x="80" y="128"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="46" font-weight="800" fill="white" letter-spacing="-1.5">Progress</text>
+  <text x="80" y="182"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="46" font-weight="800" fill="#0A84FF" letter-spacing="-1.5">Tracking.</text>
+
+  <!-- Main card -->
+  <rect x="80" y="218" width="920" height="520" rx="24" fill="url(#cardBg)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+  <!-- Card header -->
+  <text x="120" y="278"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="26" font-weight="800" fill="white" letter-spacing="-0.5">Bench Press</text>
+  <text x="120" y="308"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="14" font-weight="500" fill="rgba(255,255,255,0.38)">1 Rep Max · Last 8 weeks</text>
+
+  <!-- PR badge -->
+  <rect x="760" y="258" width="200" height="42" rx="12" fill="rgba(10,132,255,0.15)" stroke="#0A84FF" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="860" y="284"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="14" font-weight="700" fill="#0A84FF" text-anchor="middle">+12.5 kg PR</text>
+
+  <!-- Chart area -->
+  <!-- Grid lines (subtle) -->
+  <line x1="120" y1="540" x2="920" y2="540" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+  <line x1="120" y1="490" x2="920" y2="490" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+  <line x1="120" y1="440" x2="920" y2="440" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+  <line x1="120" y1="390" x2="920" y2="390" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+  <line x1="120" y1="340" x2="920" y2="340" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+
+  <!-- Y axis labels -->
+  <text x="108" y="544" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="rgba(255,255,255,0.25)" text-anchor="end">80</text>
+  <text x="108" y="494" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="rgba(255,255,255,0.25)" text-anchor="end">90</text>
+  <text x="108" y="444" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="rgba(255,255,255,0.25)" text-anchor="end">100</text>
+  <text x="108" y="394" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="rgba(255,255,255,0.25)" text-anchor="end">110</text>
+  <text x="108" y="344" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="rgba(255,255,255,0.25)" text-anchor="end">120</text>
+
+  <!-- Chart fill area (ascending curve) -->
+  <path d="M 140,530 L 255,520 L 370,505 L 485,480 L 600,460 L 715,435 L 830,418 L 900,330 L 900,545 L 140,545 Z"
+    fill="url(#chartFill)"/>
+
+  <!-- Chart line (ascending) -->
+  <path d="M 140,530 L 255,520 L 370,505 L 485,480 L 600,460 L 715,435 L 830,418 L 900,330"
+    fill="none" stroke="#0A84FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Data points -->
+  <circle cx="140" cy="530" r="5" fill="#0A84FF"/>
+  <circle cx="255" cy="520" r="5" fill="#0A84FF"/>
+  <circle cx="370" cy="505" r="5" fill="#0A84FF"/>
+  <circle cx="485" cy="480" r="5" fill="#0A84FF"/>
+  <circle cx="600" cy="460" r="5" fill="#0A84FF"/>
+  <circle cx="715" cy="435" r="5" fill="#0A84FF"/>
+  <circle cx="830" cy="418" r="5" fill="#0A84FF"/>
+  <!-- Last point (PR) highlighted -->
+  <circle cx="900" cy="330" r="8" fill="#0A84FF" stroke="white" stroke-width="2"/>
+
+  <!-- PR callout -->
+  <line x1="900" y1="330" x2="900" y2="318" stroke="#0A84FF" stroke-width="1.5" stroke-opacity="0.7"/>
+  <text x="900" y="310" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#0A84FF" text-anchor="middle">120 kg</text>
+
+  <!-- X axis labels -->
+  <text x="140" y="572" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="rgba(255,255,255,0.25)" text-anchor="middle">Wk 1</text>
+  <text x="255" y="572" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="rgba(255,255,255,0.25)" text-anchor="middle">Wk 2</text>
+  <text x="370" y="572" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="rgba(255,255,255,0.25)" text-anchor="middle">Wk 3</text>
+  <text x="485" y="572" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="rgba(255,255,255,0.25)" text-anchor="middle">Wk 4</text>
+  <text x="600" y="572" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="rgba(255,255,255,0.25)" text-anchor="middle">Wk 5</text>
+  <text x="715" y="572" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="rgba(255,255,255,0.25)" text-anchor="middle">Wk 6</text>
+  <text x="830" y="572" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="rgba(255,255,255,0.25)" text-anchor="middle">Wk 7</text>
+  <text x="900" y="572" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#0A84FF" text-anchor="middle" font-weight="700">Today</text>
+
+  <!-- Stats footer in card -->
+  <rect x="120" y="596" width="840" height="1" fill="rgba(255,255,255,0.07)"/>
+  <text x="148" y="636" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" fill="rgba(255,255,255,0.38)" letter-spacing="0.5">STARTING</text>
+  <text x="148" y="658" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="800" fill="white">107.5 kg</text>
+  <text x="450" y="636" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" fill="rgba(255,255,255,0.38)" letter-spacing="0.5">CURRENT PR</text>
+  <text x="450" y="658" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="800" fill="#0A84FF">120 kg</text>
+  <text x="760" y="636" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" fill="rgba(255,255,255,0.38)" letter-spacing="0.5">WORKOUTS</text>
+  <text x="760" y="658" font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="800" fill="white">24</text>
+
+  <!-- Bottom text -->
+  <rect x="80" y="768" width="700" height="1" fill="url(#accentLine)"/>
+
+  <text x="80" y="830"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="28" font-weight="700" fill="rgba(255,255,255,0.88)" letter-spacing="-0.5">Watch yourself get stronger.</text>
+  <text x="80" y="866"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="28" font-weight="700" fill="rgba(255,255,255,0.88)" letter-spacing="-0.5">Every week.</text>
+
+  <text x="80" y="916"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="16" font-weight="400" fill="rgba(255,255,255,0.40)">Charts, PRs, volume trends — all tracked automatically.</text>
+
+  <!-- Handle -->
+  <text x="80" y="1010"
+    font-family="-apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="13" font-weight="600" fill="rgba(255,255,255,0.22)" letter-spacing="1">barbellz.app</text>
+</svg>

@@ -428,11 +428,11 @@ function CoachModal({ onClose, userName, streak, consumed, macros, goals, daysSi
     `User: ${userName || 'athlete'}. Streak: ${streak} days.`,
     `Today nutrition: ${consumed}/${goals.calories} kcal, ${macros.p}g/${goals.protein}g protein, ${macros.c}g carbs, ${macros.f}g fat.`,
     daysSinceLast != null ? `Days since last workout: ${daysSinceLast}.` : 'No workouts logged yet.',
-    'RULE 1 — Food: When you give nutritional info for a specific food or recipe (one portion), append at the very end:',
+    'RULE 1 — Food tag: ONLY append this tag when the user explicitly asks for the calories or macros of a specific food or recipe. DO NOT append it for general advice, workout tips, motivation, or any response that does not contain specific nutritional data for one food item.',
     '[FOOD:{"name":"<name>","cal":<kcal>,"p":<protein_g>,"c":<carbs_g>,"f":<fat_g>}]',
-    'RULE 2 — Routine: When you create a workout routine, append at the very end:',
+    'RULE 2 — Routine tag: ONLY append this tag when you create a full workout routine with specific exercises. DO NOT append it for general training advice.',
     '[ROUTINE:{"name":"<routine name>","exercises":[{"name":"<exercise>","muscle":"<muscle group>"},...]}]',
-    'Include 4–7 exercises. Only append one tag per reply. Never add text after the tag.',
+    'CRITICAL: Append at most ONE tag per reply. Most replies should have NO tag. Never add text after the tag.',
   ].join(' ');
 
   useEffect(() => {

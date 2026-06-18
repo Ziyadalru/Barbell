@@ -403,6 +403,8 @@ function HomeScreen({ navigation }) {
 
 const FOOD_TAG    = /\[FOOD:(\{.*?\})\]/s;
 const ROUTINE_TAG = /\[ROUTINE:(\{.*?\})\]/s;
+const COACH_HISTORY_KEY = 'coachHistory';
+const COACH_MAX_MESSAGES = 40;
 
 function CoachModal({ onClose, userName, streak, consumed, macros, goals, daysSinceLast }) {
   const insets    = useSafeAreaInsets();
@@ -412,7 +414,11 @@ function CoachModal({ onClose, userName, streak, consumed, macros, goals, daysSi
   const [messages,    setMessages]    = useState([]);
   const [input,       setInput]       = useState('');
   const [loading,     setLoading]     = useState(false);
-  const [addingFood,  setAddingFood]  = useState(null); // { food, msgIndex }
+  const [addingFood,  setAddingFood]  = useState(null);
+
+  const saveMessages = async (msgs) => {
+    try { await AsyncStorage.setItem(COACH_HISTORY_KEY, JSON.stringify(msgs.slice(-COACH_MAX_MESSAGES))); } catch {}
+  };
 
   const systemPrompt = [
     'You are a personal fitness coach inside the Barbellz app.',
@@ -430,12 +436,30 @@ function CoachModal({ onClose, userName, streak, consumed, macros, goals, daysSi
   ].join(' ');
 
   useEffect(() => {
-    setMessages([{ role: 'assistant', text: buildOpener(streak, consumed, macros, goals, daysSinceLast, userName), food: null }]);
+    AsyncStorage.getItem(COACH_HISTORY_KEY).then(raw => {
+      const saved = parseStoredJson(raw, []);
+      if (saved.length > 0) {
+        setMessages(saved);
+      } else {
+        setMessages([{ role: 'assistant', text: buildOpener(streak, consumed, macros, goals, daysSinceLast, userName), food: null }]);
+      }
+    });
   }, []);
 
   useEffect(() => {
     if (messages.length > 0) setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 80);
   }, [messages]);
+
+  const newChat = () => {
+    Alert.alert('New Chat', 'Start a fresh conversation? This will clear the current chat.', [
+      { text: 'Cancel', style: 'cancel' },
+      { text: 'New Chat', onPress: async () => {
+        const opener = [{ role: 'assistant', text: buildOpener(streak, consumed, macros, goals, daysSinceLast, userName), food: null }];
+        setMessages(opener);
+        await saveMessages(opener);
+      }},
+    ]);
+  };
 
   const send = async () => {
     const text = input.trim();
@@ -443,6 +467,7 @@ function CoachModal({ onClose, userName, streak, consumed, macros, goals, daysSi
     setInput('');
     const updated = [...messages, { role: 'user', text, food: null, routine: null }];
     setMessages(updated);
+    saveMessages(updated);
     setLoading(true);
     try {
       const res = await fetch(AI_PROXY, {
@@ -469,9 +494,17 @@ function CoachModal({ onClose, userName, streak, consumed, macros, goals, daysSi
         try { routine = JSON.parse(routineMatch[1]); } catch {}
         displayText = raw.replace(ROUTINE_TAG, '').trim();
       }
-      setMessages(prev => [...prev, { role: 'assistant', text: displayText, food, routine }]);
+      setMessages(prev => {
+        const next = [...prev, { role: 'assistant', text: displayText, food, routine }];
+        saveMessages(next);
+        return next;
+      });
     } catch {
-      setMessages(prev => [...prev, { role: 'assistant', text: 'Connection error. Try again.', food: null, routine: null }]);
+      setMessages(prev => {
+        const next = [...prev, { role: 'assistant', text: 'Connection error. Try again.', food: null, routine: null }];
+        saveMessages(next);
+        return next;
+      });
     }
     setLoading(false);
   };
@@ -514,9 +547,12 @@ function CoachModal({ onClose, userName, streak, consumed, macros, goals, daysSi
             <Ionicons name="chevron-down" size={24} color={C.t1} />
           </TouchableOpacity>
           <Text style={{ fontSize: 17, fontWeight: '700', color: C.t1, flex: 1 }}>Coach</Text>
-          <View style={{ backgroundColor: '#BF5AF218', borderRadius: 7, paddingHorizontal: 7, paddingVertical: 3 }}>
+          <View style={{ backgroundColor: '#BF5AF218', borderRadius: 7, paddingHorizontal: 7, paddingVertical: 3, marginRight: 12 }}>
             <Text style={{ fontSize: 10, fontWeight: '800', color: '#BF5AF2', letterSpacing: 1 }}>AI</Text>
           </View>
+          <TouchableOpacity onPress={newChat} hitSlop={10}>
+            <Ionicons name="create-outline" size={20} color={C.t2} />
+          </TouchableOpacity>
         </View>
 
         {/* Messages */}

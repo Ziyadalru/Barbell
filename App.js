@@ -785,6 +785,7 @@ const REST_DEFAULT          = 90;
 const REST_TIMER_KEY        = 'restTimerSecs';
 const TRIAL_KEY        = 'trialStartDate';
 const TRIAL_DAYS       = 14;
+const CURRENT_USER_KEY = 'currentUserId';
 const PR_NAMES       = ['Bench Press', 'Squat', 'Deadlift', 'Overhead Press'];
 
 const ACHIEVEMENTS_KEY = 'userAchievements';
@@ -9001,6 +9002,7 @@ function ProfileScreen() {
                 Alert.alert('Are you sure?', 'All your data will be erased forever.', [
                   { text: 'Cancel', style: 'cancel' },
                   { text: 'Yes, Delete Everything', style: 'destructive', onPress: async () => {
+                    try { await supabase.rpc('delete_user'); } catch {}
                     await supabase.auth.signOut();
                     await AsyncStorage.clear();
                     rerunOnboarding();
@@ -10088,11 +10090,21 @@ export default function App() {
         AsyncStorage.getItem(ONBOARDING_KEY).then(v => setNeedsOnboarding(!v));
       }
     });
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
       setSession(session ?? null);
       if (!session) {
         setNeedsOnboarding(false);
       } else {
+        if (_event === 'SIGNED_IN') {
+          const storedUserId = await AsyncStorage.getItem(CURRENT_USER_KEY);
+          if (storedUserId && storedUserId !== session.user.id) {
+            // Different user signed into this device — clear previous user's data
+            const theme = await AsyncStorage.getItem(THEME_KEY);
+            await AsyncStorage.clear();
+            if (theme) await AsyncStorage.setItem(THEME_KEY, theme);
+          }
+          await AsyncStorage.setItem(CURRENT_USER_KEY, session.user.id);
+        }
         AsyncStorage.getItem(ONBOARDING_KEY).then(v => setNeedsOnboarding(!v));
       }
     });

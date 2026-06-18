@@ -242,3 +242,21 @@ insert into public.foods (
   ('Filet-O-Fish', 'McDonald''s', 'McDonald''s Riyadh', '139g', 139, 346, 14, 41, 14, 2, 5, 5, 640, 'official', 'https://www.mcdonalds.com/sa/en-sa/riyadh/product/filet-o-fish.html', true, true),
   ('9 Pcs Chicken McNuggets Meal', 'McDonald''s', 'McDonald''s Riyadh', '835g', 835, 737, 30, 70, 38, 8, 1, 5, 1177, 'official', 'https://www.mcdonalds.com/sa/en-sa/riyadh/meal/9pcs-chicken-mcnuggets-meal.html', true, true),
   ('Big Tasty Meal', 'McDonald''s', 'McDonald''s Riyadh', '1029g', 1029, 1252, 52, 108, 69, 10, 14, 24, 2178, 'official', 'https://www.mcdonalds.com/sa/en-sa/riyadh/meal/big-tasty-meal.html', true, true);
+
+-- ── DELETE USER FUNCTION ───────────────────────────────────
+-- Allows a signed-in user to delete their own auth record.
+-- Run this once in Supabase SQL Editor.
+CREATE OR REPLACE FUNCTION delete_user()
+RETURNS void
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public
+AS $$
+BEGIN
+  DELETE FROM auth.users WHERE id = auth.uid();
+END;
+$$;
+
+-- Grant execute to authenticated users only
+REVOKE EXECUTE ON FUNCTION delete_user() FROM PUBLIC;
+GRANT EXECUTE ON FUNCTION delete_user() TO authenticated;
